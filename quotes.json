@@ -6,5 +6,21 @@
     "type": "announcement",
     "role": "Sama-Ji",
     "createdAt": "2025-07-02T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "text": "text test",
+    "imageUrl": "",
+    "type": "word_of_wisdom",
+    "role": "Kunju - Melvin Satoru",
+    "createdAt": "2025-07-02T10:07:45.591471Z"
+  },
+  {
+    "id": "3",
+    "text": "Announcement test!",
+    "imageUrl": "",
+    "type": "announcement",
+    "role": "Kunju - Son Isaac",
+    "createdAt": "2025-07-02T10:08:00.855395Z"
   }
 ]

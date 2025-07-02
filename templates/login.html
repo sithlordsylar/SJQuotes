@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><title>Login</title></head>
+<body>
+  <h2>Admin Login</h2>
+  <form method="post">
+    <label>Username: <input name="username" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Sign In</button>
+  </form>
+  {% with msgs=get_flashed_messages(with_categories=true) %}
+    {% for c,m in msgs %}<p style="color:red">{{ m }}</p>{% endfor %}
+  {% endwith %}
+</body>
+</html>

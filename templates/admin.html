@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><title>Admin</title>
+<style>
+  body{font-family:sans-serif;margin:0}header{padding:1rem;background:#eee;text-align:right}
+  .container{display:flex}
+  .sidebar{width:200px;background:#f7f7f7;padding:1rem}
+  .sidebar button{display:block;margin:0.5rem 0}
+  .main{flex:1;padding:1rem}
+  table{width:100%;border-collapse:collapse}
+  th,td{border:1px solid #ccc;padding:0.5rem}
+</style>
+</head>
+<body>
+<header><a href="{{ url_for('logout') }}">Sign Out</a></header>
+<div class="container">
+  <nav class="sidebar">
+    <button onclick="showTab('api')">API</button>
+    <button onclick="showTab('posting')">Posting</button>
+    <button onclick="showTab('manage')">Manage Content</button>
+  </nav>
+  <div class="main">
+    <div id="api" class="tab">
+      <h3>API</h3>
+      <p>GET /api/entries</p>
+    </div>
+    <div id="posting" class="tab" style="display:none">
+      <h3>New Entry</h3>
+      <form method="post" action="{{ url_for('posting') }}" enctype="multipart/form-data">
+        <div><textarea name="text" rows="4" cols="40" required></textarea></div>
+        <div><input type="file" name="file"></div>
+        <div>
+          <select name="type">
+            {% for t in ['announcement','decree','law','quote_of_the_day','lore_update','prayer','word_of_wisdom','blacklist_danger','prophecy'] %}
+              <option value="{{t}}">{{t.replace('_',' ').title()}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <select name="role">
+            {% for r in ['Kunju - Vikna Otsutsuki','Kunju - Joshua Joestar','Kunju - Melvin Satoru','Kunju - Arvindo Freecs','Kunju - Rishi D. Owh Yeah','Kunju - Son Isaac','Kunju - Mob Siva','Lord Vikramnantha Sama Ji!'] %}
+              <option>{{r}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit">Publish</button>
+      </form>
+      {% with msgs=get_flashed_messages(with_categories=true) %}
+        {% for c,m in msgs %}<p style="color:green">{{m}}</p>{% endfor %}
+      {% endwith %}
+    </div>
+    <div id="manage" class="tab" style="display:none">
+      <h3>Manage Content</h3>
+      <table>
+        <tr><th>ID</th><th>Date</th><th>Type</th><th>Role</th><th>Text</th></tr>
+        {% for e in quotes %}
+        <tr>
+          <td>{{e.id}}</td>
+          <td>{{e.createdAt}}</td>
+          <td>{{e.type}}</td>
+          <td>{{e.role}}</td>
+          <td>{{e.text[:20]}}…</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  function showTab(id){
+    document.querySelectorAll('.tab').forEach(t=>t.style.display='none');
+    document.getElementById(id).style.display='block';
+  }
+</script>
+</body>
+</html>
