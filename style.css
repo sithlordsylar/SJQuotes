@@ -1,1 +1,120 @@
+/* Reset + Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background: #f9f9f9;
+}
 
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.left-header {
+  display: flex;
+  align-items: center;
+}
+.main-site-btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #222;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.main-site-btn:hover {
+  color: #4a4aeb;
+}
+.icon-bar button {
+  background: none;
+  border: none;
+  margin: 0 0.25rem;
+  padding: 0;
+  cursor: pointer;
+}
+.icon-bar button img {
+  width: 32px;
+  height: 32px;
+}
+.icon-bar button:hover img {
+  filter: brightness(1.2);
+}
+.sign-in {
+  background: #4a4aeb;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* TICKER */
+.ticker {
+  background: #000;
+  color: #fff;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0.5rem 1rem;
+  font-family: monospace;
+}
+
+/* ARCHIVE */
+.archive {
+  padding: 1rem;
+}
+.entry-card {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.entry-card img {
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+.entry-card .meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+.entry-card .text {
+  margin-bottom: 0.5rem;
+}
+.entry-card .role {
+  text-align: right;
+  font-style: italic;
+  color: #444;
+}
+
+/* FOOTER CAROUSEL */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  margin-right: 1rem;
+}
+.carousel-item img {
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
