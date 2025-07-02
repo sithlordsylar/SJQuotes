@@ -11,7 +11,6 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #fff;
   padding: 0.5rem 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -19,10 +18,15 @@ body {
   top: 0;
   z-index: 10;
 }
-.left-header {
+.header-section {
+  flex: 1;
   display: flex;
   align-items: center;
 }
+.header-left { justify-content: flex-start; }
+.header-center { justify-content: center; }
+.header-right { justify-content: flex-end; }
+
 .main-site-btn {
   background: none;
   border: none;
@@ -30,25 +34,23 @@ body {
   font-size: 1rem;
   color: #222;
   cursor: pointer;
-  margin-right: 1rem;
 }
-.main-site-btn:hover {
-  color: #4a4aeb;
-}
+.main-site-btn:hover { color: #4a4aeb; }
+
 .icon-bar button {
   background: none;
   border: none;
-  margin: 0 0.25rem;
+  margin: 0 0.5rem;
   padding: 0;
   cursor: pointer;
 }
 .icon-bar button img {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
 }
 .icon-bar button:hover img {
   filter: brightness(1.2);
 }
+
 .sign-in {
   background: #4a4aeb;
   border: none;
@@ -98,23 +100,46 @@ body {
   color: #444;
 }
 
-/* FOOTER CAROUSEL */
-.carousel {
+/* CAROUSEL */
+.carousel-container {
+  position: relative;
+  width: 600px;
+  margin: 2rem auto;
+}
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-track {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 1rem;
-  background: #fff;
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.4s ease;
 }
 .carousel-item {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  margin-right: 1rem;
+  flex: 0 0 100%;
 }
 .carousel-item img {
   width: 600px;
   height: 300px;
   object-fit: cover;
   border-radius: 4px;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+.prev-btn { left: -1.25rem; }
+.next-btn { right: -1.25rem; }
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.8);
 }

@@ -60,3 +60,24 @@ function renderArchive(entries) {
   renderTicker(entries);
   renderArchive(entries);
 })();
+
+/* === Banner Carousel Logic === */
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(track.children);
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  let index = 0;
+  const moveTo = i => {
+    track.style.transform = `translateX(-${i * 600}px)`;
+  };
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + items.length) % items.length;
+    moveTo(index);
+  });
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % items.length;
+    moveTo(index);
+  });
+});

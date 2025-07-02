@@ -9,10 +9,13 @@
 <body>
   <!-- HEADER -->
   <header class="header">
-    <div class="left-header">
+    <div class="header-section header-left">
       <button class="main-site-btn" onclick="window.location.href='https://sama.com'">
         Main site
       </button>
+    </div>
+
+    <div class="header-section header-center">
       <nav class="icon-bar">
         <button title="Decrees &amp; Laws">
           <img src="assets/icons/icon1.png" alt="Decrees & Laws">
@@ -34,47 +37,52 @@
         </button>
       </nav>
     </div>
-    <button class="sign-in">Sign In</button>
+
+    <div class="header-section header-right">
+      <button class="sign-in">Sign In</button>
+    </div>
   </header>
 
   <!-- TICKER BAR -->
-  <div id="ticker" class="ticker">
-    <!-- JS injects items here -->
-  </div>
+  <div id="ticker" class="ticker"></div>
 
   <!-- ARCHIVE -->
-  <main id="archive" class="archive">
-    <!-- JS builds Entry cards here -->
-  </main>
+  <main id="archive" class="archive"></main>
 
   <!-- FOOTER CAROUSEL -->
-  <footer class="carousel">
-    <div class="carousel-item">
-      <a href="https://sama.com">
-        <img src="assets/banners/banner1.jpg" alt="Main site banner">
-      </a>
+  <section class="carousel-container">
+    <button class="carousel-btn prev-btn" aria-label="Previous banner">‹</button>
+    <div class="carousel-track-container">
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <a href="https://sama.com">
+            <img src="assets/banners/banner1.jpg" alt="Main site banner">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://youtube.com">
+            <img src="assets/banners/banner2.jpg" alt="YouTube banner">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://soundcloud.com">
+            <img src="assets/banners/banner3.jpg" alt="SoundCloud banner">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="#">
+            <img src="assets/banners/banner4.jpg" alt="Banner 4">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="#">
+            <img src="assets/banners/banner5.jpg" alt="Banner 5">
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="carousel-item">
-      <a href="https://youtube.com">
-        <img src="assets/banners/banner2.jpg" alt="YouTube banner">
-      </a>
-    </div>
-    <div class="carousel-item">
-      <a href="https://soundcloud.com">
-        <img src="assets/banners/banner3.jpg" alt="SoundCloud banner">
-      </a>
-    </div>
-    <div class="carousel-item">
-      <a href="#">
-        <img src="assets/banners/banner4.jpg" alt="Banner 4">
-      </a>
-    </div>
-    <div class="carousel-item">
-      <a href="#">
-        <img src="assets/banners/banner5.jpg" alt="Banner 5">
-      </a>
-    </div>
-  </footer>
+    <button class="carousel-btn next-btn" aria-label="Next banner">›</button>
+  </section>
 
   <script src="app.js"></script>
 </body>
